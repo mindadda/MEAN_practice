@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from './../../service/api.service';
 
 @Component({
@@ -10,8 +11,9 @@ import { ApiService } from './../../service/api.service';
 export class EmployeeListComponent implements OnInit {
   
   Employee:any = [];
+  status: boolean = false;
 
-  constructor(private apiService: ApiService) { 
+  constructor(private apiService: ApiService , private actRoute: ActivatedRoute, private router: Router) { 
     this.readEmployee();
   }
 
@@ -32,6 +34,16 @@ export class EmployeeListComponent implements OnInit {
         }
       )    
     }
+  }
+
+  verifyEmployee(employee , index){
+      this.status = true;
+      console.log(this.status);
+      this.apiService.setStatus(employee._id , this.status).subscribe((data) => {
+          alert('Verified !!')
+        }, (error) => {
+          console.log(error)
+        })
   }
 
 }

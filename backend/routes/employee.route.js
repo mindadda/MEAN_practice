@@ -41,6 +41,7 @@ employeeRoute.route('/read/:id').get((req, res) => {
 
 // Update employee
 employeeRoute.route('/update/:id').put((req, res, next) => {
+  console.log(req.body);
   Employee.findByIdAndUpdate(req.params.id, {
     $set: req.body
   }, (error, data) => {
@@ -52,6 +53,24 @@ employeeRoute.route('/update/:id').put((req, res, next) => {
       console.log('Data updated successfully')
     }
   })
+})
+
+// Update status of employee
+employeeRoute.route('/setstatus/:id').patch((req, res, next) => {
+  // console.log(req.body);
+  Employee.findByIdAndUpdate(req.params.id, {
+     $set: { status: true }
+  },
+   (error, data) => {
+    if (error) {
+      return next(error);
+      console.log(error)
+    } else {
+      res.json(data)
+      console.log('Status updated successfully')
+    }
+  })
+  // console.log(req.body);
 })
 
 // Delete employee

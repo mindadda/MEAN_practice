@@ -15,6 +15,9 @@ let Employee = new Schema({
    phoneNumber: {
       type: Number
    },
+   status: {
+      type: Boolean
+   },
    countries: [{ countryName: { type: String }}]
 }, {
    collection: 'employees'

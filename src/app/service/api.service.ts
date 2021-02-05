@@ -39,6 +39,17 @@ export class ApiService {
     )
   }
 
+  setStatus(id , data): Observable<any> {
+    // console.log(id);
+    // console.log(data);
+    let url = `${this.baseUri}/setstatus/${id}`;
+    // console.log(url)
+    return this.http.patch(url, data).pipe(
+      catchError(this.errorMgmt)
+    )
+    // console.log(data);
+  }
+
   // Update employee
   updateEmployee(id, data): Observable<any> {
     let url = `${this.baseUri}/update/${id}`;

@@ -6,6 +6,7 @@
   <table class="table table-bordered" *ngIf="Employee.length > 0">
     <thead class="table-success">
       <tr>
+        <th scope="col">Status</th>
         <th scope="col">Employee ID</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
@@ -17,7 +18,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let employee of Employee; let i = index">
-        <th scope="row">{{employee._id}}</th>
+        <th scope="row">{{employee.status}}</th>
+        <th>{{employee._id}}</th>
         <td>{{employee.name}}</td>
         <td>{{employee.email}}</td>
         <td>{{employee.designation}}</td>
@@ -31,6 +33,9 @@
           </span>
           <span class="delete" (click)="removeEmployee(employee, i)">
             <button type="button" class="btn btn-danger btn-sm">Delete</button>
+          </span>
+          <span class="verify" (click)="verifyEmployee(employee , i)">
+            <button type="button" class="btn btn-primary btn-sm">Verify</button>
           </span>
         </td>
       </tr>
