@@ -53,52 +53,19 @@ export class EmployeeEditComponent implements OnInit {
 
   get t() { return this.myForm.countries as FormArray; }
 
-  // addAddress() {
-  //   this.t.push(this.fb.group({
-  //     countryName: ['']
-  //   }));
-
-  //   // this.editForm.get('countries').push({
-  //   //   countryName: ['']
-  //   // });
-  // }
   addAddress(country = '') {
     this.t.push(this.fb.group({
       countryName: [country]
     }));
-
-    // this.editForm.get('countries').push({
-    //   countryName: ['']
-    // });
   }
 
   removeAddress(i: number) {
     this.t.removeAt(i);
   }
 
-  removeAdd(i: number) {
-    this.t.removeAt(i);
-  }
-
   getEmployee(id) {
     this.apiService.getEmployee(id).subscribe(data => {
       this.employee = data;
-      // this.countries = data.countries;
-      // console.log(this.countries[0].countryName);
-
-      // console.log(data);
-      // for (let i = 0; i < this.countries.length; i++) {
-      //   this.editForm.patchValue({
-      //     name: this.employee.name,
-      //     email: this.employee.email,
-      //     designation: this.employee.designation,
-      //     phoneNumber: this.employee.phoneNumber,
-      //     countryName: this.countries[i].countryName
-      //   });
-      //   // console.log(this.countries[i].countryName);
-
-      // }
-
       this.editForm.patchValue({
         name: this.employee.name,
         email: this.employee.email,
@@ -108,28 +75,8 @@ export class EmployeeEditComponent implements OnInit {
       data.countries.map(country => {
         this.addAddress(country.countryName);
       });
-
-      // this.editForm.controls.countries.setValue('abc');
-      // this.setExpenseCategories();
     });
   }
-
-  // setExpenseCategories() {
-  //   let control = <FormArray>this.editForm.controls.countriesName;
-  //   this.employeeData.countries.forEach(x => {
-  //     control.push(this.fb.group(x));
-  //   })
-  // }
-
-  // updateEmployee() {
-  //   this.editForm = this.fb.group({
-  //     name: ['', [Validators.required]],
-  //     email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
-  //     designation: ['', [Validators.required]],
-  //     phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
-  //     countryName: ['']
-  //   })
-  // }
 
   onSubmit() {
     this.submitted = true;

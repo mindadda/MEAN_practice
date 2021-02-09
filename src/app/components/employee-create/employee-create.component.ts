@@ -3,11 +3,6 @@ import { ApiService } from './../../service/api.service';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { FormGroup, FormBuilder, Validators , FormArray} from "@angular/forms";
 
-
-// export interface Country {
-//   name: string;
-// }
-
 @Component({
   selector: 'app-employee-create',
   templateUrl: './employee-create.component.html',
@@ -17,7 +12,6 @@ import { FormGroup, FormBuilder, Validators , FormArray} from "@angular/forms";
 export class EmployeeCreateComponent implements OnInit {  
   submitted = false;
   employeeForm: FormGroup;
-  // countryArray: Country[] = [];
   EmployeeProfile:any = ['Finance', 'BDM', 'HR', 'Sales', 'Admin'];
   
   constructor(

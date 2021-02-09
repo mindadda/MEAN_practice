@@ -1,0 +1,156 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+      <div class="row">
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Traffic</h5>
+                  <span class="h2 font-weight-bold mb-0">350,897</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                    <i class="fas fa-chart-bar"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                <span class="text-nowrap">Since last month</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
+                  <span class="h2 font-weight-bold mb-0">2,356</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                    <i class="fas fa-chart-pie"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> 3.48%</span>
+                <span class="text-nowrap">Since last week</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
+                  <span class="h2 font-weight-bold mb-0">49,65%</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                    <i class="fas fa-percent"></i>
+                  </div>
+                </div>
+                </div>
+                <p class="mt-3 mb-0 text-muted text-sm">
+                  <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
+                  <span class="text-nowrap">Since last month</span>
+                </p>
+              </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
+                  <span class="h2 font-weight-bold mb-0">49,65%</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                    <i class="fas fa-percent"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
+                <span class="text-nowrap">Since last month</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-md-4 register-employee">
+    <!-- form card register -->
+    <div class="card-body">
+        <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+          <div class="form-group">
+              <button type="button" class="btn btn-primary mb-2" (click)="addAddress()">Add Country</button>
+          </div>
+  
+            <div *ngFor="let ticket of t.controls; let i = index">
+                  <div [formGroup]="ticket" class="form-row">
+                    <div class="col-12 text-right">
+                        <button type="button" class="btn btn-danger btn-sm" (click)="removeAddress(i)">Remove</button>
+                    </div>
+                    <div class="form-group col-6">
+                        <label>Country Name {{i + 1}}</label>
+                        <input type="text" formControlName="countryName" class="form-control" />
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+    </div>
+  </div><!-- form card register -->
+
+  <div class="col-md-4 register-employee">
+    <!-- form card register -->
+    <div class="card-body">
+        <form [formGroup]="employeeForm1" (ngSubmit)="onSubmit1()">
+
+          <div class="form-group">
+              <button type="button" class="btn btn-primary mb-2" (click)="addAddress1()">Add Country</button>
+          </div>
+  
+            <div *ngFor="let ticket of t1.controls; let i = index">
+                  <div [formGroup]="ticket" class="form-row">
+                    <div class="col-12 text-right">
+                        <button type="button" class="btn btn-danger btn-sm" (click)="removeAddress1(i)">Remove</button>
+                    </div>
+                    <div class="form-group col-6">
+                        <label>Country Name {{i + 1}}</label>
+                        <input type="text" formControlName="countryName" class="form-control" />
+                    </div>
+                    <div class="form-group col-6">
+                      <label>Region Name {{i + 1}}</label>
+                      <input type="text" formControlName="regionName" class="form-control" />
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+    </div>
+  </div>
+
+</div>
